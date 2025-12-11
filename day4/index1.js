@@ -35,22 +35,13 @@ function roll(array, index, count) {
     let lineAbove = [];
     let lineBelow = [];
 
-    if (count === 0) {
-        lineBelow = safeRow(count + 1);
-        return (
-            safe(array, index + 1) + safe(lineBelow, index + 1) +
-            safe(array, index - 2) + safe(lineBelow, index - 1) +
-            safe(lineBelow, index)
-        );
-    }
-
     lineAbove = safeRow(count - 1);
     lineBelow = safeRow(count + 1);
     return (
         safe(lineAbove, index) + safe(lineAbove, index + 1) +
         safe(array, index + 1) + safe(lineBelow, index + 1) +
         safe(lineBelow, index) + safe(lineBelow, index - 1) +
-        safe(array, index - 2) + safe(lineAbove, index - 1)
+        safe(array, index - 1) + safe(lineAbove, index - 1)
     );
 }
 
